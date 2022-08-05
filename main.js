@@ -9,11 +9,25 @@ let cron
 
 /* Funções - Botões */
 function comecar() {
-  cron = setInterval(timer, tempo)
+  let check = document.getElementsByClassName('comecar')
+
+  if (check[0].classList.length == 2) {
+    cron = setInterval(timer, tempo)
+    check[0].classList.remove('off')
+  } else {
+    return
+  }
 }
 
 function pausar() {
-  clearInterval(cron)
+  let check = document.getElementsByClassName('comecar')
+
+  if (check[0].classList.length == 1) {
+    check[0].classList.add('off')
+    clearInterval(cron)
+  } else {
+    clearInterval(cron)
+  }
 }
 
 function reiniciar() {
